@@ -41,11 +41,11 @@ for i = 1:nZip
     idx = inZip & inMemphis;
     
     % Get zipcode identifier (adjust field name if necessary)
-    zc = zipTable.ZipCode{i};  
+    zc = zipTable.ZipCode(i);  
     % Look up sadness value from the sadnessData table
-    row = sadnessData(strcmp(string(sadnessData.zipcode), string(zc)), :);
+    row = sadnessData(strcmp(string(sadnessData.ZipCodes), string(zc)), :);
     if ~isempty(row)
-        sadnessVal = row.sadness;
+        sadnessVal = row.VulnerabilityScore;
         values(idx) = sadnessVal;
     end
 end
